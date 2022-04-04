@@ -10,7 +10,7 @@
     "dev": "ts-node-dev ./src/index.ts",
     "start": "tsc && node ./build/index.js",
     "migrations": "tsnd ./src/data/Migrations.ts",
-    "build": "tsc --build",
+    "build": "tsc",
     "postinstall": "tsc"
   },
   "repository": {
