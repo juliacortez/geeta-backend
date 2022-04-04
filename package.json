@@ -35,9 +35,7 @@
     "mysql": "^2.18.1",
     "serve": "^13.0.2",
     "typescript": "^4.6.3",
-    "uuid": "^8.3.2"
-  },
-  "devDependencies": {
+    "uuid": "^8.3.2",
     "@types/bcryptjs": "^2.4.2",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/mysql": "^2.15.21",
