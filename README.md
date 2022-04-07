@@ -44,13 +44,13 @@ $ cd geeta-backend
 # Instale as dependências
 $ npm install
 
-# Execute o comando para criar as tabelas
-$ npm run migrations
-
 # Execute o comando para iniciar a aplicação
 $ npm run start
 
 # O servidor iniciará na porta:3003 
+
+# Se necessário execute o comando para criar as tabelas
+$ npm run migrations
 ```
 
 <h2>👩🏻‍💻 Desenvolvedora</h2>
