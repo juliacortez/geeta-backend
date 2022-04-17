@@ -44,7 +44,6 @@ export class UserController {
 
             if(!email || !password){
                 res.status(422).send("Insira as informações 'email' e 'senha' corretamente.")
-                throw new Error("Insira as informações 'email' e 'senha' corretamente.")
             }
 
             const user = await new UserBusiness().findUserByEmail(email)
@@ -59,8 +58,7 @@ export class UserController {
             )
 
             if(!isPasswordCorrect){
-                res.status(401).send("Email ou senha incorretos.")
-                throw new Error("Senha incorreta.")
+                res.status(401).send("Senha incorreta.")
             }
 
             const token = new Authenticator().generate({
