@@ -44,11 +44,14 @@ export class UserController {
 
             if(!email || !password){
                 res.status(422).send("Insira as informações 'email' e 'senha' corretamente.")
+                throw new Error("Insira as informações 'email' e 'senha' corretamente.")
             }
 
             const user = await new UserBusiness().findUserByEmail(email)
+            
             if(!user){
                 res.status(409).send("Usuário não existente")
+                throw new Error("Usuário inexistente.")
             }
 
             const isPasswordCorrect = new HashManager().compareHash(
@@ -57,6 +60,7 @@ export class UserController {
 
             if(!isPasswordCorrect){
                 res.status(401).send("Email ou senha incorretos.")
+                throw new Error("Senha incorreta.")
             }
 
             const token = new Authenticator().generate({
@@ -66,7 +70,8 @@ export class UserController {
 
             res.status(200).send({message: "Logado com sucesso!", token})
         } catch (error) {
-            res.status(400).send(error.message);
+            res.status(400).send(error);
+            throw new Error(error)
         }
     }
 }
